@@ -1,12 +1,12 @@
-# sw-employee
-<p>
-  <img src="https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/us.png" />
-  This is a simple project with only one entity and three endpoints.
-  </br> Switch to the <a href="https://github.com/matheuspenachioni/sw-employee/tree/swagger" target="_blank">swagger</a> branch to see APIs.
-</p>
+# SW-Employee
+~~O nome é SW-Employee pois inicialmente este repositório era apenas para o **Sw**agger~~
 
-<p>
-  <img src="https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/br.png" /> 
-  Este é um projeto bem simples com apenas uma entidade e três endpoints.
-  </br> Mude para a branch <a href="https://github.com/matheuspenachioni/sw-employee/tree/swagger" target="_blank">swagger</a> para ver as APIs
-</p>
+Este repositório serve como uma documentação feita por mim (de como **eu** entendi) sobre várias coisas relacionadas ao Java, como por exemplo:
+<ul>
+  <li>Swagger</li>
+  <li>JWT</li>
+  <li>RestTemplate</li>
+  <li>etc...</li>
+</ul>
+
+Para ver os códigos, basta mudar para a branch desejada. Caso esteja usando este material para estudar: bons estudos...
