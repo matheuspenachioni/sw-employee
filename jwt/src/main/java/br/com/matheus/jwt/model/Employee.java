@@ -1,8 +1,13 @@
 package br.com.matheus.jwt.model;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -14,7 +19,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee {
+public class Employee implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_employee", nullable = false)
@@ -28,10 +33,10 @@ public class Employee {
 	private String cpfEmployee;
 	
 	@Email
-    @Column(name = "email_customer", nullable = false, unique = true)
+    @Column(name = "email_employee", nullable = false, unique = true)
     private String emailEmployee;
     
-    @Column(name = "password_customer", nullable = false)
+    @Column(name = "password_employee", nullable = false)
     private String passwordEmployee;
 
 	@Column(name = "date_created", nullable = false, updatable = false)
@@ -51,5 +56,46 @@ public class Employee {
 	@PreUpdate
 	public void preUpdate() {
 		this.setDateUpdated(LocalDateTime.now());
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return passwordEmployee;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return emailEmployee;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }

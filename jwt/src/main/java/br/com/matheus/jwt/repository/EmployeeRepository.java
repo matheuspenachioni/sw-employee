@@ -8,4 +8,6 @@ import br.com.matheus.jwt.model.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 
+	Employee findByEmailEmployee(String subject);
+
 }
